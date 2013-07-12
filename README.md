@@ -6,7 +6,7 @@
 
 Timeneye can be used from the web (<http://app.timeneye.com>) or from the [Android mobile app](https://play.google.com/store/apps/details?id=net.dmdigital.timeneye). An iOS version is currently in development.
 
-Timeneye integrates with [Basecamp](http://www.basecamp.com), allowing users to register time directly from there commenting on their to-dos with the time spent on them.
+Timeneye integrates with [Basecamp](http://www.basecamp.com), allowing users to [track time directly from Basecamp](http://www.timeneye.com/basecamp-time-tracking) commenting on their to-dos with the time spent on them.
 
 ## API System
 
@@ -15,6 +15,8 @@ You can integrate your apps with Timeneye, offering time tracking capabilities d
 ### Status
 
 The API is currently in development, with new endpoints being added over time. Currently, the 2.0 version of the API allows third-party apps to record time entries, retrieving projects, tasks, entries log, users.
+
+**IMPORTANT: Timeneye API 2.0 is in BETA stage: you need to use the http://beta.timeneye.com/api/2/[apiName] endpoint to test it.**
 
 ### Authentication
 
