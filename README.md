@@ -35,7 +35,7 @@ All requests are made against endpoints like this:
 
 ### Available APIs
 
-* authorizeUser
+* [authorizeUser](./APIs/authorizeUser.md)
 * deauthorizeUser
 * getEntries
 * getEntry
