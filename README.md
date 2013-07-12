@@ -36,14 +36,14 @@ All requests are made against endpoints like this:
 ### Available APIs
 
 * [authorizeUser](./APIs/authorizeUser.md)
-* deauthorizeUser
-* getEntries
-* getEntry
-* getProjects
-* getUsers
-* saveEntry
-* deleteEntry
-* startTracking
+* [deauthorizeUser](./APIs/deauthorizeUser.md)
+* [getEntries](./APIs/getEntries.md)
+* [getEntry](./APIs/getEntry.md)
+* [getProjects](./APIs/getProjects.md)
+* [getUsers](./APIs/getUsers.md)
+* [saveEntry](./APIs/saveEntry.md)
+* [deleteEntry](./APIs/deleteEntry.md)
+* [startTracking](./APIs/startTracking.md)
 
 ## Help us make it better
 
