@@ -1,6 +1,6 @@
 # getEntries
 
-Returns a list of entries. You can filter it by projectId, dateFrom, dateTo or userId (the latter is only available for project managers or account owners); you can use offset and limit to paginate the results.
+Returns a list of the latest entries of the authenticated user. You can filter it by projectId, dateFrom, dateTo or userId (the latter is only available for project managers or account owners to get another user's entries); you can use offset and limit to paginate the results.
 
 ### Params
 * authToken (string)
