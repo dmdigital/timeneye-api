@@ -30,6 +30,8 @@ All the API requests are POSTs, and parameters need to be sent as classic POST p
 
 The API responses are characterized by a HTTP code (we use a set of about 10 possible response codes) and a JSON payload (when necessary)
 
+Dates are in the MySQL format: YYYY-MM-DD HH:mm:ss
+
 ### Endpoint
 
 All requests are made against endpoints like this: 
