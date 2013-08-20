@@ -1,13 +1,13 @@
 # getEntries
 
-Returns a list of the latest entries of the authenticated user. You can filter it by projectId, dateFrom, dateTo or userId (the latter is only available for project managers or account owners to get another user's entries); you can use offset and limit to paginate the results.
+Returns a list of the latest entries. You can filter it by projectId, dateFrom, dateTo or userId (the latter is only available for project managers or account owners to get another user's entries, or all users' entries using '-1'); you can use offset and limit to paginate the results.
 
 ### Params
 * authToken (string)
 * [projectId (int)]
 * [dateFrom (date)]
 * [dateTo (date)]
-* [userId (int)]
+* [userId (int), can be used by Project Managers or Owners only; normal Users only see their own entries]
 * [offset (int)]
 * [limit (int)]
 
@@ -18,6 +18,8 @@ Returns a list of the latest entries of the authenticated user. You can filter i
 	* entryDate (date)
 	* projectId (int)
 	* projectName (string)
+	* userId (int)
+	* userName (string)
 	* taskId (int)
 	* taskName (string)
 	* minutes (int)
