@@ -32,6 +32,7 @@ API returns:
     			"projectId":"637",
     			"projectName":"Arduino UX",
     			"weight":"2",
+    			"active":"1",
     			"tasks":[
     				{
     					"taskId":"2247",
