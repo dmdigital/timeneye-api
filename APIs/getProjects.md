@@ -1,9 +1,10 @@
 # getProjects
 
-Returns a list of active projects.
+Returns a list of projects. By default, it returns active projects only.
 
 ### Params
 * authToken (string)
+* [showInactive (tinyint), default = 0]
 
 ### Returns
 * HTTP Code: 200 OK
@@ -11,6 +12,7 @@ Returns a list of active projects.
 	* projectId (int)
 	* projectName (string)
 	* weight (int)
+	* active (tinyint)
 	* tasks (array)
 		* taskId (int)
 		* taskName (string)
