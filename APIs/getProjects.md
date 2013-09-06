@@ -1,6 +1,6 @@
 # getProjects
 
-Returns a list of projects. By default, it returns active projects only.
+Returns a list of projects. By default, it returns active projects only. fixedAmount and hourlyRate are returned only if user has permissions to see them.
 
 ### Params
 * authToken (string)
@@ -11,6 +11,8 @@ Returns a list of projects. By default, it returns active projects only.
 * projects (array)
 	* projectId (int)
 	* projectName (string)
+	* fixedAmount (decimal)
+	* hourlyRate (decimal)
 	* weight (int)
 	* active (tinyint)
 	* tasks (array)
