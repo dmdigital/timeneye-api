@@ -35,6 +35,8 @@ API returns:
     			"projectName":"Arduino UX",
     			"weight":"2",
     			"active":"1",
+    			"fixedAmount":"1450.00",
+    			"hourlyRate":"45.00",
     			"tasks":[
     				{
     					"taskId":"2247",
