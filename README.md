@@ -44,6 +44,7 @@ All requests are made against endpoints like this:
 * [getEntries](./APIs/getEntries.md)
 * [getEntry](./APIs/getEntry.md)
 * [getProjects](./APIs/getProjects.md)
+* [getProject](./APIs/getProject)
 * [getUsers](./APIs/getUsers.md)
 * [saveEntry](./APIs/saveEntry.md)
 * [deleteEntry](./APIs/deleteEntry.md)
