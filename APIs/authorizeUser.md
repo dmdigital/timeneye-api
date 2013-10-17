@@ -2,6 +2,10 @@
 
 Exchanges email and password with an authToken.
 
+### Status
+
+Stable.
+
 ### Params
 * email (string)
 * password (string)

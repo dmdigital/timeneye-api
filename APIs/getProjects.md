@@ -2,6 +2,10 @@
 
 Returns a list of projects. By default, it returns active projects only. fixedAmount and hourlyRate are returned only if user has permissions to see them.
 
+### Status
+
+Stable.
+
 ### Params
 * authToken (string)
 * [showInactive (tinyint), default = 0]

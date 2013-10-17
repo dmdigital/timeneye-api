@@ -2,6 +2,10 @@
 
 Notifies Timeneye that the user has started working on a particular project (this information is reflected on the Status page).
 
+### Status
+
+Stable.
+
 ### Params
 * authToken (string)
 * projectid (nt)

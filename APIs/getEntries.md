@@ -2,6 +2,10 @@
 
 Returns a list of the latest entries. You can filter it by projectId, dateFrom, dateTo or userId (the latter is only available for project managers or account owners to get another user's entries, or all users' entries using '-1'); you can use offset and limit to paginate the results.
 
+### Status
+
+Stable.
+
 ### Params
 * authToken (string)
 * [projectId (int)]

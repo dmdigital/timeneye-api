@@ -2,6 +2,10 @@
 
 Invalidates the authToken, logging the user off from every device which was connected using the API.
 
+### Status
+
+Stable.
+
 ### Params
 * authToken (string)
 

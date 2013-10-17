@@ -2,6 +2,10 @@
 
 Returns details for the requested entry. Only user's entries can be retrieved.
 
+### Status
+
+Stable.
+
 ### Params
 * authToken (string)
 * entryId (int)

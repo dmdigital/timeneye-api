@@ -16,8 +16,6 @@ You can integrate your apps with Timeneye, offering time tracking capabilities d
 
 The API is currently in development, with new endpoints being added over time. Currently, the 2.0 version of the API allows third-party apps to record time entries, retrieving projects, tasks, entries log, users.
 
-**IMPORTANT: Timeneye API 2.0 is in BETA stage: you need to use the http://beta.timeneye.com/api/2/[apiName] endpoint to test it.**
-
 ### Authentication
 
 Requests made to the API need to be authenticated providing an authToken in the post data. The authToken can be obtained using the authorizeUser() API call.
@@ -37,6 +35,8 @@ Dates are in the MySQL format: YYYY-MM-DD HH:mm:ss
 All requests are made against endpoints like this: 
 `https://app.timeneye.com/api/2/[apiName]`
 
+Beta stage APIs are accessible only using the `https://beta.timeneye.com/api/2/[apiName]` endpoint.
+
 ### Available APIs
 
 * [authorizeUser](./APIs/authorizeUser.md)
@@ -44,7 +44,9 @@ All requests are made against endpoints like this:
 * [getEntries](./APIs/getEntries.md)
 * [getEntry](./APIs/getEntry.md)
 * [getProjects](./APIs/getProjects.md)
-* [getProject](./APIs/getProject)
+* [getProject](./APIs/getProject.md)
+* [addUserToProject](./APIs/addUserToProject.md)
+* [removeUserFromProject](./APIs/removeUserFromProject.md)
 * [getUsers](./APIs/getUsers.md)
 * [saveEntry](./APIs/saveEntry.md)
 * [deleteEntry](./APIs/deleteEntry.md)

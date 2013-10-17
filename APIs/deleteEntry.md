@@ -2,6 +2,10 @@
 
 Deletes an entry.
 
+### Status
+
+Stable.
+
 ### Params
 * authToken (string)
 * entryId (int)

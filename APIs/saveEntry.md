@@ -2,6 +2,10 @@
 
 Stores an entry, inserting or editing it (set entryId = -1 for inserts).
 
+### Status
+
+Stable.
+
 ### Params
 * authToken (string)
 * entryId (int): -1 for new insert

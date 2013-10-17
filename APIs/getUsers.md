@@ -2,6 +2,10 @@
 
 Returns the list of users linked to the account.
 
+### Status
+
+Stable.
+
 ### Params
 * authToken (string)
 

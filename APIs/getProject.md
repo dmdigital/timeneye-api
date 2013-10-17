@@ -1,6 +1,12 @@
 # getProject
 
-Returns a project's details. fixedAmount and hourlyRate are returned only if user has permissions to see them.
+Returns a project's details. 
+fixedAmount and hourlyRate are returned only if user has permissions to see them.
+If the requester is a Project Manager or an Account Owner, access data is returned too (including access type - "public" or "private" - and the list of users that can access the project if this is private).
+
+### Status
+
+Stable.
 
 ### Params
 * authToken (string)
@@ -18,6 +24,11 @@ Returns a project's details. fixedAmount and hourlyRate are returned only if use
 		* taskId (int)
 		* taskName (string)
 		* isOpen (tinyInt)
+	* access (visible to Project Managers and Owners only)
+		* type ("public" or "private")
+		* users (array, only if project is private)
+			* userId (int)
+			* name (string)
 
 ### Errors
 * 400 Bad Request: missing required parameters
@@ -47,7 +58,20 @@ API returns:
     				"taskName":"Pre-design",
     				"isOpen":"0"
     			}
-    		]
+    		],
+    		"access": {
+    			"type": "private",
+    			"users": [
+    				{
+    					"userId": "1",
+    					"name": "Daniele"
+    				},
+    				{
+    					"userId": "2",
+    					"name": "John"
+    				}
+    			]
+    		}
     	}
     }
 	
