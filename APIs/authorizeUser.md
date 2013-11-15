@@ -13,6 +13,7 @@ Stable.
 ### Returns
 * HTTP Code: 200 OK
 * authToken (string)
+* userId (int)
 
 ### Errors
 * 400 Bad Request: missing required parameters
