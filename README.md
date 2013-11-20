@@ -41,6 +41,7 @@ Beta stage APIs are accessible only using the `https://beta.timeneye.com/api/2/[
 
 * [authorizeUser](./APIs/authorizeUser.md)
 * [deauthorizeUser](./APIs/deauthorizeUser.md)
+* [getUserDetails](./APIs/getUserDetails.md)
 * [getEntries](./APIs/getEntries.md)
 * [getEntry](./APIs/getEntry.md)
 * [getProjects](./APIs/getProjects.md)

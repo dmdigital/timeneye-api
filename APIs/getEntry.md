@@ -12,7 +12,7 @@ Stable.
 
 ### Returns
 * HTTP Code: 200 OK
-* entriy (array)
+* entry (object)
 	* entryId (int)
 	* entryDate (date)
 	* projectId (int)
