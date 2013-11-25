@@ -29,6 +29,8 @@ Stable.
 	* minutes (int)
 	* amount (float)
 	* notes (text)
+	* billed (int)
+	* dailyMinutes (int)
 
 ### Errors
 * 400 Bad Request: missing required parameters
@@ -52,7 +54,8 @@ API returns:
 				"minutes":"60",
 				"amount":"0.00",
 				"notes":"Meeting with Don",
-				"billed":"0"
+				"billed":"0",
+				"dailyMinutes":"75"
 			},
 			{
 				"entryId":"6409",
@@ -64,8 +67,8 @@ API returns:
 				"minutes":"15",
 				"amount":"0.00",
 				"notes":"Worked on Status Page",
-				"billed":
-				"0"
+				"billed":"0",
+				"dailyMinutes":"75"
 			}
 		]
 	}
