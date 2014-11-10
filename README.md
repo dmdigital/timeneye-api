@@ -1,5 +1,7 @@
 # Timeneye API 2.0
 
+*** This API refers to https://app.timeneye.com. We are working to the new version's API (https://track.timeneye.com), coming out in the next few months. ***
+
 ## Overview
 
 [Timeneye Time Tracking](http://www.timeneye.com "Timeneye Time Tracking") is a time tracking and reporting web app meant to be extremely simple and usable even for the most recalcitrant user.
