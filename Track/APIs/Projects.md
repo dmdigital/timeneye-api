@@ -50,7 +50,7 @@ Creates a new project
 
 ### Returns
 * HTTP Code: 201 Created
-* projectId (int)
+* id (int)
 
 ### Errors
 * 400 Bad Request: missing required parameters | Name is too short
