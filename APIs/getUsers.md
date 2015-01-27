@@ -1,6 +1,6 @@
 # getUsers
 
-Returns the list of users linked to the account.
+Returns the list of users linked to the account. If showDisabled is set to "1", retrieves disabled users too.
 
 ### Status
 
@@ -8,6 +8,7 @@ Stable.
 
 ### Params
 * authToken (string)
+* [showDisabled (tinyint)]
 
 ### Returns
 * HTTP Code: 200 OK
@@ -30,12 +31,14 @@ API returns:
     		{
     			"userId":"1",
     			"email":"grassi@dmdigital.it",
-    			"name":"Daniele Grassi"
+    			"name":"Daniele Grassi",
+    			"enabled":"1"
     		},
     		{
     			"userId":"2",
     			"email":"anas@dmdigital.it",
-    			"name":"Anas Bouhtouch"
+    			"name":"Anas Bouhtouch",
+    			"enabled":"0"
     		}
     	]
     }
