@@ -88,7 +88,7 @@ Returns project's details. Some details are shown only to PMs and admins.
 * 401 Unauthorized: authToken not valid
 
 ### Example
-GET `https://track.timeneye.com/api/3/projects/1323`
+GET `https://track.timeneye.com/api/3/projects/1323/`
 
 API returns:
 
@@ -101,4 +101,46 @@ API returns:
         "isBillable":"0",
         "hourlyRate":"0.00",
         "budgetMinutes":"0"
-    }
+}
+
+
+## PUT /projects/[ID]/
+
+Updates a project (PMs only).
+
+### Parameters (POST data, all optional)
+* name (string)
+* isBillable (tinyint)
+* hourlyRate (decimal)
+* budgetMinutes (int)
+
+### Returns
+* HTTP Code: 200 OK
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 403 Not permitted
+* 404 Not found
+* 406 Duplicated: A project with the same name already exists
+
+### Example
+PUT `https://track.timeneye.com/api/3/projects/1245/`
+Post Data: isBillable=0
+
+
+## DELETE /projects/[ID]/
+
+Deletes a project (PMs only).
+
+### Returns
+* HTTP Code: 200 OK
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 403 Not permitted
+* 404 Not found
+
+### Example
+DELETE `https://track.timeneye.com/api/3/projects/1245/`
