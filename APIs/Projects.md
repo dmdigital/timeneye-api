@@ -254,3 +254,43 @@ API returns:
         "hourlyRate":"0.00",
         "budgetMinutes":"0"
 	}
+
+
+## PUT /projects/[ID]/tasks/[ID]/
+
+Updates a task (PMs only).
+
+### Parameters (POST data, all optional)
+* name (string)
+* categoryId (int)
+* budgetMinutes (int)
+
+### Returns
+* HTTP Code: 200 OK
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 403 Not permitted
+* 404 Not found
+
+### Example
+PUT `https://track.timeneye.com/api/3/projects/1245/tasks/5599/`
+Post Data: name=New+name
+
+
+## DELETE /projects/[ID]/tasks/[ID]/
+
+Deletes a task (PMs only).
+
+### Returns
+* HTTP Code: 200 OK
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 403 Not permitted
+* 404 Not found
+
+### Example
+DELETE `https://track.timeneye.com/api/3/projects/1245/tasks/6692/`
