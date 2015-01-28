@@ -79,8 +79,8 @@ Returns project's details. Some details are shown only to PMs and admins.
 * name (string)
 * isActive (tinyint)
 * clientId (int, PMs only)
-* clientName (int, PMs only)
-* hourlyRate (int, PMs only)
+* clientName (string, PMs only)
+* hourlyRate (decimal, PMs only)
 * budgetMinutes (int, PMs only)
 
 ### Errors
@@ -101,7 +101,7 @@ API returns:
         "isBillable":"0",
         "hourlyRate":"0.00",
         "budgetMinutes":"0"
-}
+	}
 
 
 ## PUT /projects/[ID]/
@@ -144,3 +144,113 @@ Deletes a project (PMs only).
 
 ### Example
 DELETE `https://track.timeneye.com/api/3/projects/1245/`
+
+
+## GET /projects/[ID]/tasks/
+
+Returns a project's tasks. Some details are shown only to PMs and admins.
+
+### Returns
+* HTTP Code: 200 OK
+* tasks
+	* id (int)
+	* name (string)
+	* isOpen (tinyint)
+	* categoryId (int)
+	* categoryName (string)
+	* budgetMinutes (int, PMs only)
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 403 Not permitted
+
+
+### Example
+GET `https://track.timeneye.com/api/3/projects/1323/tasks/`
+
+API returns:
+
+    {
+    	"tasks":[
+    		{
+    			"id":"4461",
+    			"name":"Control panel development",
+    			"isOpen":1,
+    			"categoryId":"-1",
+    			"categoryName":"",
+    			"budgetMinutes":"0"
+    		},{
+    			"id":"4457",
+    			"name":"Gestionale Agenda Commerciale",
+    			"isOpen":1,
+    			"categoryId":"-1",
+    			"categoryName":"",
+    			"budgetMinutes":"0"
+    		}
+		]
+	}
+	
+
+## POST /projects/[ID]/tasks/
+
+Creates a new task
+
+### Parameters (POST data)
+* name (string)
+* categoryId (int, optional)
+* budgetHours (int, optional)
+
+### Returns
+* HTTP Code: 201 Created
+* id (int)
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 403 Not permitted: you cannot create tasks
+* 406 Duplicated
+
+### Example
+GET `https://track.timeneye.com/api/3/projects/1245/tasks/`
+Post Data: name=My+Test+Task
+
+API returns:
+
+    {
+        "id":5432
+    }
+
+
+## GET /projects/[ID]/tasks/[ID]
+
+Returns task's details. Some details are shown only to PMs and admins.
+
+### Returns
+* HTTP Code: 200 OK
+* id (int)
+* name (string)
+* isOpen (tinyint)
+* categoryId (int)
+* categoryName (string)
+* budgetMinutes (int, PMs only)
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+
+### Example
+GET `https://track.timeneye.com/api/3/projects/1323/tasks/4534/`
+
+API returns:
+
+    {
+        "id":"1014",
+        "name":"Ciccio Pasticcio2",
+        "isActive":"1",
+        "clientId":"-1",
+        "clientName":"",
+        "isBillable":"0",
+        "hourlyRate":"0.00",
+        "budgetMinutes":"0"
+	}
