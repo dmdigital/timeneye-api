@@ -40,6 +40,7 @@ Dates are in the MySQL format, GMT: YYYY-MM-DD HH:mm:ss
 ### Available sections
 
 * [Projects](./APIs/Projects.md)
+* [Users](./APIs/Users.md)
 
 ## Help us make it better
 
