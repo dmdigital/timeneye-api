@@ -263,7 +263,7 @@ Updates a task (PMs only).
 ### Parameters (POST data, all optional)
 * name (string)
 * categoryId (int)
-* budgetMinutes (int)
+* budgetHours (int)
 
 ### Returns
 * HTTP Code: 200 OK
@@ -294,3 +294,101 @@ Deletes a task (PMs only).
 
 ### Example
 DELETE `https://track.timeneye.com/api/3/projects/1245/tasks/6692/`
+
+
+## GET /projects/[ID]/users/
+
+Returns a project's users. If requesting user is not PM, returns only himself.
+
+### Returns
+* HTTP Code: 200 OK
+* tasks
+	* id (int)
+	* name (string)
+	* isPM (tinyint)
+	* budgetMinutes (int, PM only)
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 403 Not permitted
+
+
+### Example
+GET `https://track.timeneye.com/api/3/projects/1323/users/`
+
+API returns:
+
+    {
+    	"users":[
+    		{
+    			"id":"127",
+    			"name":"d.grassi84@gmail.com",
+    			"isPM":1
+    		}
+    	]
+    }
+	
+
+## POST /projects/[ID]/users/
+
+Adds a user to a project. Only PM can call this API.
+
+### Parameters (POST data)
+* userId (int)
+* isPM (tinyint, optional)
+* budgetHours (int, optional)
+
+### Returns
+* HTTP Code: 201 Created
+* id (int)
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 403 Not permitted: you cannot add users
+* 406 Duplicated
+
+### Example
+POST `https://track.timeneye.com/api/3/projects/1245/users/`
+Post Data: userId=1432
+
+
+## PUT /projects/[ID]/users/[ID]/
+
+Updates a user (PMs only).
+
+### Parameters (POST data, all optional)
+* name (string)
+* budgetHours (int)
+* isPM (tinyint)
+
+### Returns
+* HTTP Code: 200 OK
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 403 Not permitted
+* 404 Not found
+
+### Example
+PUT `https://track.timeneye.com/api/3/projects/1245/users/5599/`
+Post Data: budgetHours=23
+
+
+## DELETE /projects/[ID]/users/[ID]/
+
+Deletes a user (PMs only).
+
+### Returns
+* HTTP Code: 200 OK
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 403 Not permitted
+* 404 Not found
+
+### Example
+DELETE `https://track.timeneye.com/api/3/projects/1245/users/6692/`
