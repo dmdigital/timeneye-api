@@ -41,26 +41,29 @@ API returns:
 	}
 	
 
-## POST /projects
+## POST /users
 
-Creates a new project
+Creates a new user (admins only)
 
 ### Parameters (POST data)
+* email (string)
 * name (string)
+* isAdmin (int)
+* sendWelcomeEmail (int)
 
 ### Returns
 * HTTP Code: 201 Created
 * id (int)
 
 ### Errors
-* 400 Bad Request: missing required parameters | Name is too short
+* 400 Bad Request: missing required parameters
 * 401 Unauthorized: authToken not valid
-* 403 Not permitted: you cannot create projects
+* 403 Not permitted: you cannot create users
 * 406 Duplicated
 
 ### Example
-GET `https://track.timeneye.com/api/3/projects/1245`
-Post Data: name=My+Test+Project
+POST `https://track.timeneye.com/api/3/users/`
+Post Data: email=debugger@timeneye.com
 
 API returns:
 
@@ -69,50 +72,67 @@ API returns:
     }
 
 
-## GET /projects/[ID]/
+## GET /users/[ID]/
 
-Returns project's details. Some details are shown only to PMs and admins.
+Returns a user's details. Admins only.
 
 ### Returns
 * HTTP Code: 200 OK
 * id (int)
 * name (string)
-* isActive (tinyint)
-* clientId (int, PMs only)
-* clientName (string, PMs only)
-* hourlyRate (decimal, PMs only)
-* budgetMinutes (int, PMs only)
+* email (string)
+* enabled (tinyint)
+* isAdmin (tinyint)
+* createProjects (tinyint)
 
 ### Errors
 * 400 Bad Request: missing required parameters
 * 401 Unauthorized: authToken not valid
+* 403 Not permitted
+* 404 Not found
 
 ### Example
-GET `https://track.timeneye.com/api/3/projects/1323/`
+GET `https://track.timeneye.com/api/3/users/156/`
 
 API returns:
 
-    {
-        "id":"1014",
-        "name":"Ciccio Pasticcio2",
-        "isActive":"1",
-        "clientId":"-1",
-        "clientName":"",
-        "isBillable":"0",
-        "hourlyRate":"0.00",
-        "budgetMinutes":"0"
-	}
+    	{
+			"id":"156",
+			"name":"cippolo@ocoss.com",
+			"email":"cippolo@ocoss.com",
+			"enabled":"1",
+			"isAdmin":"0",
+			"createProjects":"0"
+		}
 
 
-## PUT /projects/[ID]/
+## PUT /users/[ID]/
 
-Updates a project (PMs only).
+Updates a user (admins only).
 
 ### Parameters (POST data, all optional)
 * name (string)
-* isBillable (tinyint)
-* hourlyRate (decimal)
-* budgetMinutes (int)
+* email (string)
+* isAdmin (tinyint)
+* createProjects (tinyint)
+
+### Returns
+* HTTP Code: 200 OK
+
+### Errors
+* 400 Bad Request: missing required parameters
+* 401 Unauthorized: authToken not valid
+* 404 Not found
+* 406 Duplicated
+
+### Example
+PUT `https://track.timeneye.com/api/3/users/1245/`
+Post Data: name=Michael+Clayton
+
+
+## DELETE /users/[ID]/
+
+Deletes a user (admin only).
 
 ### Returns
 * HTTP Code: 200 OK
@@ -122,43 +142,22 @@ Updates a project (PMs only).
 * 401 Unauthorized: authToken not valid
 * 403 Not permitted
 * 404 Not found
-* 406 Duplicated: A project with the same name already exists
 
 ### Example
-PUT `https://track.timeneye.com/api/3/projects/1245/`
-Post Data: isBillable=0
+DELETE `https://track.timeneye.com/api/3/users/1245/`
 
 
-## DELETE /projects/[ID]/
+## GET /users/[ID]/projects/
 
-Deletes a project (PMs only).
-
-### Returns
-* HTTP Code: 200 OK
-
-### Errors
-* 400 Bad Request: missing required parameters
-* 401 Unauthorized: authToken not valid
-* 403 Not permitted
-* 404 Not found
-
-### Example
-DELETE `https://track.timeneye.com/api/3/projects/1245/`
-
-
-## GET /projects/[ID]/tasks/
-
-Returns a project's tasks. Some details are shown only to PMs and admins.
+Returns a user's projects. Admins only.
 
 ### Returns
 * HTTP Code: 200 OK
 * tasks
 	* id (int)
 	* name (string)
-	* isOpen (tinyint)
-	* categoryId (int)
-	* categoryName (string)
-	* budgetMinutes (int, PMs only)
+	* isPM (tinyint)
+	* budgetMinutes (int, PM only)
 
 ### Errors
 * 400 Bad Request: missing required parameters
@@ -167,38 +166,28 @@ Returns a project's tasks. Some details are shown only to PMs and admins.
 
 
 ### Example
-GET `https://track.timeneye.com/api/3/projects/1323/tasks/`
+GET `https://track.timeneye.com/api/3/users/1323/projects/`
 
 API returns:
 
     {
-    	"tasks":[
+    	"projects":[
     		{
-    			"id":"4461",
-    			"name":"Control panel development",
-    			"isOpen":1,
-    			"categoryId":"-1",
-    			"categoryName":"",
-    			"budgetMinutes":"0"
-    		},{
-    			"id":"4457",
-    			"name":"Gestionale Agenda Commerciale",
-    			"isOpen":1,
-    			"categoryId":"-1",
-    			"categoryName":"",
-    			"budgetMinutes":"0"
+    			"id":"127",
+    			"name":"My great project",
+    			"isPM":1
     		}
-		]
-	}
+    	]
+    }
 	
 
-## POST /projects/[ID]/tasks/
+## POST /users/[ID]/projects/
 
-Creates a new task
+Adds a user to a project. Only PM can call this API.
 
 ### Parameters (POST data)
-* name (string)
-* categoryId (int, optional)
+* userId (int)
+* isPM (tinyint, optional)
 * budgetHours (int, optional)
 
 ### Returns
@@ -208,62 +197,21 @@ Creates a new task
 ### Errors
 * 400 Bad Request: missing required parameters
 * 401 Unauthorized: authToken not valid
-* 403 Not permitted: you cannot create tasks
+* 403 Not permitted: you cannot add users
 * 406 Duplicated
 
 ### Example
-GET `https://track.timeneye.com/api/3/projects/1245/tasks/`
-Post Data: name=My+Test+Task
-
-API returns:
-
-    {
-        "id":5432
-    }
+POST `https://track.timeneye.com/api/3/projects/1245/users/`
+Post Data: userId=1432
 
 
-## GET /projects/[ID]/tasks/[ID]
+## PUT /users/[ID]/projects/[ID]/
 
-Returns task's details. Some details are shown only to PMs and admins.
-
-### Returns
-* HTTP Code: 200 OK
-* id (int)
-* name (string)
-* isOpen (tinyint)
-* categoryId (int)
-* categoryName (string)
-* budgetMinutes (int, PMs only)
-
-### Errors
-* 400 Bad Request: missing required parameters
-* 401 Unauthorized: authToken not valid
-
-### Example
-GET `https://track.timeneye.com/api/3/projects/1323/tasks/4534/`
-
-API returns:
-
-    {
-        "id":"1014",
-        "name":"Ciccio Pasticcio2",
-        "isActive":"1",
-        "clientId":"-1",
-        "clientName":"",
-        "isBillable":"0",
-        "hourlyRate":"0.00",
-        "budgetMinutes":"0"
-	}
-
-
-## PUT /projects/[ID]/tasks/[ID]/
-
-Updates a task (PMs only).
+Updates a user-project association.
 
 ### Parameters (POST data, all optional)
-* name (string)
-* categoryId (int)
 * budgetHours (int)
+* isPM (tinyint)
 
 ### Returns
 * HTTP Code: 200 OK
@@ -275,13 +223,13 @@ Updates a task (PMs only).
 * 404 Not found
 
 ### Example
-PUT `https://track.timeneye.com/api/3/projects/1245/tasks/5599/`
-Post Data: name=New+name
+PUT `https://track.timeneye.com/api/3/users/1245/projects/5599/`
+Post Data: budgetHours=23
 
 
-## DELETE /projects/[ID]/tasks/[ID]/
+## DELETE /users/[ID]/projects/[ID]/
 
-Deletes a task (PMs only).
+Removes a user from a project.
 
 ### Returns
 * HTTP Code: 200 OK
@@ -293,4 +241,4 @@ Deletes a task (PMs only).
 * 404 Not found
 
 ### Example
-DELETE `https://track.timeneye.com/api/3/projects/1245/tasks/6692/`
+DELETE `https://track.timeneye.com/api/3/users/1245/projects/6692/`

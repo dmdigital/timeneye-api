@@ -59,7 +59,7 @@ Creates a new project
 * 406 Duplicated
 
 ### Example
-GET `https://track.timeneye.com/api/3/projects/1245`
+POST `https://track.timeneye.com/api/3/projects/`
 Post Data: name=My+Test+Project
 
 API returns:
@@ -88,13 +88,13 @@ Returns project's details. Some details are shown only to PMs and admins.
 * 401 Unauthorized: authToken not valid
 
 ### Example
-GET `https://track.timeneye.com/api/3/projects/1323/`
+GET `https://track.timeneye.com/api/3/projects/1014/`
 
 API returns:
 
     {
         "id":"1014",
-        "name":"Ciccio Pasticcio2",
+        "name":"My great project",
         "isActive":"1",
         "clientId":"-1",
         "clientName":"",
@@ -359,7 +359,6 @@ Post Data: userId=1432
 Updates a user (PMs only).
 
 ### Parameters (POST data, all optional)
-* name (string)
 * budgetHours (int)
 * isPM (tinyint)
 
@@ -379,7 +378,7 @@ Post Data: budgetHours=23
 
 ## DELETE /projects/[ID]/users/[ID]/
 
-Deletes a user (PMs only).
+Removes a user from a project.
 
 ### Returns
 * HTTP Code: 200 OK
