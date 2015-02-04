@@ -42,6 +42,8 @@ Dates are in the MySQL format, GMT: YYYY-MM-DD HH:mm:ss
 * [Projects](./APIs/Projects.md)
 * [Users](./APIs/Users.md)
 * [Entries](./APIs/Entries.md)
+* [Clients](./APIs/Clients.md)
+* [Task Categories](./APIs/Taskcategories.md)
 
 ## Help us make it better
 
