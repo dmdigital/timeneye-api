@@ -2,6 +2,8 @@
 
 *** This API refers to https://track.timeneye.com. ***
 
+*** Looking for api.timeneye.com APIs? [Click here](./Old/README.md) ***
+
 ## Overview
 
 [Timeneye Time Tracking](http://www.timeneye.com "Timeneye Time Tracking") is a time tracking and reporting web app meant to be extremely simple and usable even for the most recalcitrant user.
