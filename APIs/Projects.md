@@ -108,7 +108,7 @@ API returns:
 
 Updates a project (PMs only).
 
-### Parameters (POST data, all optional)
+### Parameters (GET data, all optional)
 * name (string)
 * isBillable (tinyint)
 * hourlyRate (decimal)
@@ -126,7 +126,7 @@ Updates a project (PMs only).
 
 ### Example
 PUT `https://track.timeneye.com/api/3/projects/1245/`
-Post Data: isBillable=0
+Get Data: isBillable=0
 
 
 ## DELETE /projects/[ID]/

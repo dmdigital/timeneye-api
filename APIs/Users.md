@@ -110,7 +110,7 @@ API returns:
 
 Updates a user (admins only).
 
-### Parameters (POST data, all optional)
+### Parameters (GET data, all optional)
 * name (string)
 * email (string)
 * isAdmin (tinyint)
@@ -127,7 +127,7 @@ Updates a user (admins only).
 
 ### Example
 PUT `https://track.timeneye.com/api/3/users/1245/`
-Post Data: name=Michael+Clayton
+Get Data: name=Michael+Clayton
 
 
 ## DELETE /users/[ID]/

@@ -99,7 +99,7 @@ API returns:
 
 Updates an entry.
 
-### Parameters (POST data, all optional)
+### Parameters (GET data, all optional)
 * projectId (int)
 * taskId (int)
 * minutes (int)
@@ -118,7 +118,7 @@ Updates an entry.
 
 ### Example
 PUT `https://track.timeneye.com/api/3/entries/1245/`
-Post Data: notes=Conference+call
+Get Data: notes=Conference+call
 
 
 ## DELETE /entries/[ID]/
