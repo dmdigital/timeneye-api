@@ -18,10 +18,10 @@ Returns a list of user's timers.
 	* taskId (int)
 	* taskName (string)
 	* notes (string)
-	* seconds (int)
-	* timerStart (datetime)
 	* timerStatus (string, "running" or "paused")
+	* currentSeconds (int, timer's seconds as for now)
 	* updatedDatetime (datetime)
+	* timerDate (date)
 	
 ### Errors
 * 400 Bad Request: missing required parameters
@@ -100,7 +100,8 @@ Updates a timer.
 * projectId (int)
 * taskId (int)
 * seconds (int)
-* notes (string, optional)
+* notes (string)
+* timerDate (date)
 
 ### Returns
 * HTTP Code: 200 OK
