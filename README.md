@@ -27,7 +27,7 @@ The API supports an OAuth 2.0 flow. External applications needs to register at h
 - External applications redirect the user to a specific page on Timeneye: `https://track.timeneye.com/authorize/[clientId]`
 - User authorizes the application to access its Timeneye data
 - User is redirected to the application's `redirectUri` with an additional `code` parameter
-- The application exchanges the `code` parameter with an accessToken using the `https://track.timeneye.com/token` endpoint. This request has to be made specifying a specific header: `Authorization: Basic XXX`, where `XXX` is `base64('[clientId]:[clientSecret]')` and setting the appropriate `code` and `clientId` GET query parameters.
+- The application exchanges the `code` parameter with an accessToken using the `https://track.timeneye.com/api/3/token/` endpoint. This request has to be made specifying a specific header: `Authorization: Basic XXX`, where `XXX` is `base64('[clientId]:[clientSecret]')` and setting the appropriate `code` and `clientId` GET query parameters.
 - A JSON structure is returned, containing `accessToken`, `refreshToken` and `expiration`.
 - Subsequent calls can be made using the `accessToken` set in a specific header: `Bearer: [accessToken]`.
 
